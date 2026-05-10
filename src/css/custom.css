@@ -1,0 +1,408 @@
+/* Custom CSS */
+
+/* ===== LIGHT MODE VARIABLES ===== */
+:root {
+  --ifm-background-color: #FFFFFF;
+  --ifm-background-surface-color: #F5F5F5;
+  --ifm-color-primary: #1A1A1A;
+  --ifm-color-primary-dark: #111111;
+  --ifm-color-primary-darker: #0A0A0A;
+  --ifm-color-primary-darkest: #000000;
+  --ifm-color-primary-light: #333333;
+  --ifm-color-primary-lighter: #444444;
+  --ifm-color-primary-lightest: #555555;
+  --ifm-font-color-base: #1A1A1A;
+  --ifm-font-color-secondary: #555555;
+  --ifm-code-background: #F0F0F0;
+  --ifm-navbar-background-color: #FFFFFF;
+  --ifm-footer-background-color: #F5F5F5;
+  --ifm-card-background-color: #FFFFFF;
+  --ifm-border-color: #E0E0E0;
+  --ifm-hover-overlay: rgba(0, 0, 0, 0.05);
+
+  /* Hero Gradient - Light Mode */
+  --hero-gradient-start: #1A1A1A;
+  --hero-gradient-end: #666666;
+
+  /* Terminal Colors - Light Mode */
+  --term-header-bg: #E8E8E8;
+  --term-body-bg: #F9F9F9;
+  --term-text-color: #333;
+
+  /* Terminal Syntax Colors - Light Mode */
+  --term-color-command: #1A1A1A;
+  --term-color-string: #1A6B2A;
+  --term-color-comment: #888888;
+  --term-color-brace: #0553B0;
+  --term-color-key: #B91C1C;
+  --term-color-bracket: #8A5C00;
+  --term-color-number: #9A4500;
+
+  --ifm-font-family-base: "Plus Jakarta Sans", system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
+  --ifm-heading-font-family: "Space Grotesk", var(--ifm-font-family-base);
+  --ifm-font-family-monospace: "IBM Plex Mono", SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+/* ===== DARK MODE VARIABLES ===== */
+:root[data-theme='dark'] {
+  --ifm-background-color: #0A0A0A;
+  --ifm-background-surface-color: #111111;
+  --ifm-color-primary: #FFFFFF;
+  --ifm-color-primary-dark: #E0E0E0;
+  --ifm-color-primary-darker: #C0C0C0;
+  --ifm-color-primary-darkest: #A0A0A0;
+  --ifm-color-primary-light: #FFFFFF;
+  --ifm-color-primary-lighter: #FFFFFF;
+  --ifm-color-primary-lightest: #FFFFFF;
+  --ifm-font-color-base: #FAFAFA;
+  --ifm-font-color-secondary: #A0A0A0;
+  --ifm-code-background: #1A1A1A;
+  --ifm-navbar-background-color: #0A0A0A;
+  --ifm-footer-background-color: #0A0A0A;
+  --ifm-card-background-color: #111111;
+  --ifm-border-color: #2A2A2A;
+  --ifm-hover-overlay: rgba(255, 255, 255, 0.05);
+
+  /* Hero Gradient - Dark Mode */
+  --hero-gradient-start: #FFFFFF;
+  --hero-gradient-end: #888888;
+
+  /* Terminal Colors - Dark Mode */
+  --term-header-bg: #1C1C1C;
+  --term-body-bg: #111111;
+  --term-text-color: #FAFAFA;
+
+  /* Terminal Syntax Colors - Dark Mode */
+  --term-color-command: #E0E0E0;
+  --term-color-string: #98C379;
+  --term-color-comment: #A0A0A0;
+  --term-color-brace: #61AFEF;
+  --term-color-key: #E06C75;
+  --term-color-bracket: #E5C07B;
+  --term-color-number: #D19A66;
+}
+
+/* ===== SMOOTH THEME TRANSITIONS ===== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body,
+.navbar,
+.footer,
+.main-wrapper,
+[class*='docPage'],
+[class*='docSidebarContainer'],
+[class*='sidebarViewport'],
+.menu,
+article,
+.card,
+.theme-admonition,
+.tabs-container,
+.table-of-contents {
+  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.2s ease;
+}
+
+/* ===== ANNOUNCEMENT BAR ===== */
+
+[class*='announcementBar'] {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07) !important;
+  font-size: 0.875rem;
+}
+
+[class*='announcementBarContent'] a {
+  color: #DDDDDD !important;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+[class*='announcementBarContent'] a:hover {
+  color: #FFFFFF !important;
+}
+
+/* ===== NAVBAR ===== */
+
+.navbar {
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(10, 10, 10, 0.82) !important;
+  border-bottom: 1px solid var(--ifm-border-color);
+  box-shadow: none;
+  transition: background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+:root:not([data-theme='dark']) .navbar {
+  background-color: rgba(255, 255, 255, 0.88) !important;
+}
+
+.navbar--scrolled-above {
+  box-shadow: 0 2px 24px rgba(0, 0, 0, 0.15) !important;
+}
+
+.navbar__title {
+  font-family: var(--ifm-heading-font-family);
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: -0.2px;
+}
+
+.navbar__link {
+  border-radius: 6px;
+  padding: 0.4rem 0.7rem;
+  font-size: 0.9rem;
+  transition: background-color 0.15s ease, color 0.15s ease, opacity 0.15s ease !important;
+}
+
+.navbar__link:hover {
+  background-color: var(--ifm-hover-overlay);
+  opacity: 1;
+}
+
+.navbar__link--active {
+  font-weight: 600;
+}
+
+/* Color mode toggle button */
+.navbar__items--right .clean-btn {
+  border-radius: 8px;
+  transition: background-color 0.15s ease, transform 0.15s ease !important;
+}
+
+.navbar__items--right .clean-btn:hover {
+  background-color: var(--ifm-hover-overlay);
+  transform: scale(1.08);
+}
+
+/* ===== BUTTONS ===== */
+
+.button {
+  border-radius: 8px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease, border-color 0.18s ease, color 0.18s ease !important;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.2);
+}
+
+.button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Solid button (CTA) */
+.button--secondary {
+  background-color: var(--ifm-font-color-base) !important;
+  color: var(--ifm-background-color) !important;
+  border-color: var(--ifm-font-color-base) !important;
+}
+
+.button--secondary:hover {
+  background-color: var(--ifm-color-primary-dark) !important;
+  border-color: var(--ifm-color-primary-dark) !important;
+  color: var(--ifm-background-color) !important;
+}
+
+/* Outlined button */
+.button--outline.button--secondary {
+  background-color: transparent !important;
+  color: var(--ifm-font-color-base) !important;
+  border-color: var(--ifm-border-color) !important;
+}
+
+.button--outline.button--secondary:hover {
+  background-color: var(--ifm-hover-overlay) !important;
+  border-color: var(--ifm-font-color-base) !important;
+  color: var(--ifm-font-color-base) !important;
+}
+
+/* ===== HERO ===== */
+
+/* Remove default primary background from hero in both modes */
+.hero.hero--primary {
+  background-color: var(--ifm-background-color) !important;
+}
+
+/* ===== SIDEBAR ===== */
+
+.menu__link {
+  border-radius: 6px;
+  font-size: 0.9rem;
+  transition: background-color 0.15s ease, color 0.15s ease !important;
+}
+
+.menu__link:hover {
+  background-color: var(--ifm-hover-overlay);
+}
+
+.menu__list-item-collapsible:hover {
+  background-color: var(--ifm-hover-overlay);
+  border-radius: 6px;
+}
+
+/* ===== TABLE OF CONTENTS ===== */
+
+.table-of-contents__link {
+  transition: color 0.15s ease !important;
+  font-size: 0.875rem;
+}
+
+.table-of-contents__link:hover,
+.table-of-contents__link--active {
+  color: var(--ifm-font-color-base);
+}
+
+/* ===== CARDS / ADMONITIONS ===== */
+
+.theme-admonition {
+  border-radius: 8px;
+}
+
+/* ===== CODE BLOCKS ===== */
+
+.prism-code {
+  border-radius: 8px !important;
+  font-size: 0.9rem !important;
+}
+
+/* ===== FOOTER ===== */
+
+.footer {
+  padding: 1.5rem 0 !important;
+  border-top: 1px solid var(--ifm-border-color);
+}
+
+.footer.footer--dark {
+  background-color: var(--ifm-background-surface-color) !important;
+}
+
+.footer__copyright {
+  font-size: 0.85rem;
+  color: var(--ifm-font-color-secondary);
+  margin: 0;
+}
+
+.footer__copyright a {
+  color: var(--ifm-font-color-base);
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.15s ease;
+}
+
+.footer__copyright a:hover {
+  opacity: 0.75;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* ===== PAGINATION (docs nav) ===== */
+
+.pagination-nav__link {
+  border-radius: 10px;
+  border: 1px solid var(--ifm-border-color);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease !important;
+}
+
+.pagination-nav__link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  border-color: var(--ifm-color-primary-dark);
+}
+
+/* ===== MOBILE GLOBAL ===== */
+
+@media screen and (max-width: 996px) {
+  /* Announcement bar wraps cleanly */
+  [class*='announcementBar'] {
+    font-size: 0.8rem !important;
+    padding: 0.4rem 1rem !important;
+    text-align: center;
+    line-height: 1.5;
+  }
+
+  /* Prevent code blocks from breaking layout */
+  .prism-code,
+  pre {
+    font-size: 0.85rem !important;
+    overflow-x: auto;
+  }
+
+  /* Footer on mobile */
+  .footer {
+    padding: 1.25rem 1rem !important;
+    text-align: center;
+  }
+
+  .footer__copyright {
+    line-height: 1.8;
+  }
+
+  /* Pagination nav stacks */
+  .pagination-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .pagination-nav__link {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  /* Base font slightly smaller */
+  html {
+    font-size: 15px;
+  }
+
+  /* Prevent horizontal overflow */
+  body {
+    overflow-x: hidden;
+  }
+
+  /* Navbar title shorter on tiny screens */
+  .navbar__title {
+    font-size: 0.9rem;
+  }
+
+  /* Docs sidebar already handled by Docusaurus */
+
+  /* Tables scroll horizontally */
+  table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Announcement bar even smaller */
+  [class*='announcementBar'] {
+    font-size: 0.75rem !important;
+  }
+
+  /* Admonitions */
+  .theme-admonition {
+    padding: 0.75rem 1rem;
+  }
+}
+
+/* ===== SCROLLBAR ===== */
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--ifm-border-color);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ifm-font-color-secondary);
+}
