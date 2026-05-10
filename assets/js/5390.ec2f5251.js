@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkopenweather_docs=globalThis.webpackChunkopenweather_docs||[]).push([[5390],{5390(e,c,a){a.d(c,{createArchitectureServices:()=>h.S});var h=a(5530);a(2519)}}]);
