@@ -30,12 +30,12 @@ The OpenWeatherMap API follows REST conventions:
 
 ```mermaid
 graph LR
-    A[api.openweathermap.org] --> B[/data/2.5/weather]
-    A --> C[/data/2.5/forecast]
-    A --> D[/geo/1.0/direct]
-    B --> E[Current conditions]
-    C --> F[5-day forecast]
-    D --> G[City coordinates]
+    A["api.openweathermap.org"] --> B["/data/2.5/weather"]
+    A --> C["/data/2.5/forecast"]
+    A --> D["/geo/1.0/direct"]
+    B --> E["Current conditions"]
+    C --> F["5-day forecast"]
+    D --> G["City coordinates"]
 ```
 
 ## Data Freshness
