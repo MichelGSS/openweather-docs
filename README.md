@@ -1,41 +1,50 @@
-# Website
+# OpenWeatherMap API Docs
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+Unofficial, developer-focused documentation for the [OpenWeatherMap REST API](https://openweathermap.org/api) — built as a Technical Writing portfolio sample by [Michel Silveira](https://michelgss.github.io/portfolio/).
 
-## Installation
+**Live site:** https://michelgss.github.io/openweather-docs/
 
-```bash
-yarn
-```
+---
+
+## About
+
+This project showcases technical writing skills through a fully structured API documentation site. It is not affiliated with or endorsed by OpenWeatherMap.
+
+The documentation follows the **Diátaxis framework**, organizing content into four distinct types:
+
+| Type | Purpose |
+|---|---|
+| Tutorials | Step-by-step learning (weather dashboard, CLI tool) |
+| How-to guides | Task-oriented instructions (fetch weather, handle errors) |
+| Reference | API endpoints, parameters, error codes, rate limits |
+| Explanation | Conceptual material (architecture, units, data model) |
+
+## Stack
+
+- [Docusaurus 3](https://docusaurus.io/) — static site generator
+- TypeScript + React
+- GitHub Actions — automated deploy to GitHub Pages
+- Custom CSS with dark/light mode and responsive layout
 
 ## Local Development
 
 ```bash
-yarn start
+npm install
+npm start
 ```
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+Opens at `http://localhost:3000/openweather-docs/`. Changes are reflected live.
 
 ## Build
 
 ```bash
-yarn build
+npm run build
 ```
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
+Generates static files into `build/`. Deploy is handled automatically via GitHub Actions on every push to `main`.
 
-## Deployment
+## Author
 
-Using SSH:
-
-```bash
-USE_SSH=true yarn deploy
-```
-
-Not using SSH:
-
-```bash
-GIT_USER=<Your GitHub username> yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+**Michel Silveira** — Technical Writer  
+Portfolio: https://michelgss.github.io/portfolio/  
+GitHub: https://github.com/MichelGSS
