@@ -61,6 +61,7 @@ const config: Config = {
             { label: 'Geocoding', to: '/docs/reference/geocoding' },
           ],
         },
+        { to: '/playground', label: 'Try it Live', position: 'right' },
         { href: 'https://michelgss.github.io/portfolio/', label: 'Portfolio', position: 'right' },
         { href: 'https://github.com/michelgss', label: 'GitHub', position: 'right' },
       ],

@@ -3,8 +3,11 @@ import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
+import BrowserOnly from '@docusaurus/BrowserOnly';
 
 import styles from './index.module.css';
+import WeatherWidget from '../components/WeatherWidget';
+import GeoWeather from '../components/GeoWeather';
 
 function WeatherIllustration() {
   const rays = [0, 45, 90, 135, 180, 225, 270, 315];
@@ -206,7 +209,7 @@ function CodeHighlightSection() {
   );
 }
 
-export default function Home(): JSX.Element {
+export default function Home(): React.JSX.Element {
   const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
@@ -215,6 +218,8 @@ export default function Home(): JSX.Element {
       <HomepageHeader />
       <main>
         <HomepageFeatures />
+        <BrowserOnly>{() => <GeoWeather />}</BrowserOnly>
+        <BrowserOnly>{() => <WeatherWidget />}</BrowserOnly>
         <CodeHighlightSection />
       </main>
     </Layout>

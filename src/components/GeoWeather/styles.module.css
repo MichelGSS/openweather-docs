@@ -1,0 +1,288 @@
+/* GeoWeather dashboard */
+
+.section {
+  padding: 4rem 0;
+  background-color: var(--ifm-background-color);
+  border-bottom: 1px solid var(--ifm-border-color);
+}
+
+.card {
+  max-width: 700px;
+  margin: 0 auto;
+  background: var(--ifm-card-background-color);
+  border: 1px solid var(--ifm-border-color);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  min-height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+:root[data-theme='dark'] .card {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+/* Idle state */
+
+.idle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 3rem 2rem;
+  width: 100%;
+}
+
+.idleIcon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.idleTitle {
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  color: var(--ifm-font-color-base);
+}
+
+.idleDesc {
+  font-size: 0.95rem;
+  color: var(--ifm-font-color-secondary);
+  margin-bottom: 1.75rem;
+  max-width: 360px;
+  line-height: 1.5;
+}
+
+.locateBtn {
+  padding: 0.75rem 1.75rem;
+  background: var(--ifm-font-color-base);
+  color: var(--ifm-background-color);
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: var(--ifm-font-family-base);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  margin-bottom: 1rem;
+}
+
+.locateBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.locateBtn:active {
+  transform: translateY(0);
+}
+
+.noKeyBadge {
+  font-size: 0.78rem;
+  color: var(--ifm-font-color-secondary);
+  border: 1px solid var(--ifm-border-color);
+  border-radius: 20px;
+  padding: 0.25rem 0.75rem;
+}
+
+/* Loading state */
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 3rem;
+  color: var(--ifm-font-color-secondary);
+  font-size: 0.95rem;
+}
+
+.spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid var(--ifm-border-color);
+  border-top-color: var(--ifm-font-color-base);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Error state */
+
+.errorState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 3rem 2rem;
+  gap: 0.75rem;
+}
+
+.errorIcon {
+  font-size: 2rem;
+  color: #E06C75;
+}
+
+.errorState p {
+  color: var(--ifm-font-color-secondary);
+  font-size: 0.95rem;
+  margin: 0;
+  max-width: 360px;
+}
+
+.retryBtn {
+  margin-top: 0.25rem;
+  padding: 0.55rem 1.25rem;
+  background: transparent;
+  border: 1px solid var(--ifm-border-color);
+  border-radius: 8px;
+  color: var(--ifm-font-color-base);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: var(--ifm-font-family-base);
+  transition: background-color 0.15s ease;
+}
+
+.retryBtn:hover {
+  background-color: var(--ifm-hover-overlay);
+}
+
+/* Dashboard */
+
+.dashboard {
+  width: 100%;
+  padding: 2rem;
+}
+
+.dashTop {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+}
+
+.wmoIcon {
+  font-size: 4rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.dashPrimary {
+  flex: 1;
+}
+
+.location {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ifm-font-color-secondary);
+  margin-bottom: 0.2rem;
+}
+
+.temp {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--ifm-font-color-base);
+  font-family: var(--ifm-heading-font-family);
+  margin-bottom: 0.2rem;
+}
+
+.condition {
+  font-size: 1rem;
+  color: var(--ifm-font-color-secondary);
+  text-transform: capitalize;
+}
+
+.refreshBtn {
+  align-self: flex-start;
+  background: transparent;
+  border: 1px solid var(--ifm-border-color);
+  border-radius: 8px;
+  padding: 0.35rem 0.8rem;
+  font-size: 0.8rem;
+  color: var(--ifm-font-color-secondary);
+  cursor: pointer;
+  font-family: var(--ifm-font-family-base);
+  transition: background-color 0.15s ease, color 0.15s ease;
+  white-space: nowrap;
+}
+
+.refreshBtn:hover {
+  background-color: var(--ifm-hover-overlay);
+  color: var(--ifm-font-color-base);
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--ifm-border-color);
+  margin-bottom: 1.25rem;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.statLabel {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ifm-font-color-secondary);
+}
+
+.statValue {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--ifm-font-color-base);
+  font-family: var(--ifm-font-family-monospace);
+}
+
+.poweredBy {
+  font-size: 0.78rem;
+  color: var(--ifm-font-color-secondary);
+}
+
+.poweredBy a {
+  color: var(--ifm-font-color-secondary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.15s ease;
+}
+
+.poweredBy a:hover {
+  color: var(--ifm-font-color-base);
+}
+
+/* Responsive */
+
+@media screen and (max-width: 600px) {
+  .section {
+    padding: 3rem 0;
+  }
+
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .wmoIcon {
+    font-size: 3rem;
+  }
+
+  .temp {
+    font-size: 2.75rem;
+  }
+
+  .dashboard {
+    padding: 1.5rem;
+  }
+}
