@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Layout from '@theme/Layout';
+import Link from '@docusaurus/Link';
 import clsx from 'clsx';
 import styles from './playground.module.css';
 
@@ -197,7 +198,7 @@ export default function Playground() {
             </div>
             <span className={styles.keyHint}>
               Don't have a key?{' '}
-              <a href="/openweather-docs/docs/getting-started/get-api-key">Get one free →</a>
+              <Link to="/docs/getting-started/get-api-key">Get one free →</Link>
             </span>
           </div>
 
@@ -269,7 +270,7 @@ export default function Playground() {
               </div>
 
               {/* Response */}
-              <div className={styles.responseBox}>
+              <div className={styles.responseBox} aria-live="polite" aria-busy={loading}>
                 <div className={styles.responseHeader}>
                   <span className={styles.panelTitle}>Response</span>
                   {response && (

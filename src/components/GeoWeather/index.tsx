@@ -121,13 +121,18 @@ export default function GeoWeather() {
   return (
     <section className={styles.section}>
       <div className="container">
-        <div className={styles.card}>
+        <div className={styles.header}>
+          <span className={styles.eyebrow}>Instant demo · No API key</span>
+          <h2>See the weather where you are</h2>
+          <p>Powered entirely by open data — no signup, no key, one click.</p>
+        </div>
+        <div className={styles.card} aria-live="polite" aria-busy={state.status === 'loading'}>
           {state.status === 'idle' && (
             <div className={styles.idle}>
-              <div className={styles.idleIcon}>📍</div>
-              <h2 className={styles.idleTitle}>Your local weather, right now</h2>
+              <div className={styles.idleIcon} aria-hidden="true">📍</div>
               <p className={styles.idleDesc}>
-                No API key needed. Uses your browser's location + open-source weather data.
+                Uses your browser's location and open-source weather data. Your
+                coordinates never leave your device beyond the weather lookup.
               </p>
               <button className={styles.locateBtn} onClick={handleLocate}>
                 Use my location →
@@ -138,14 +143,14 @@ export default function GeoWeather() {
 
           {state.status === 'loading' && (
             <div className={styles.loading}>
-              <div className={styles.spinner} />
+              <div className={styles.spinner} aria-hidden="true" />
               <p>Detecting your location…</p>
             </div>
           )}
 
           {state.status === 'error' && (
-            <div className={styles.errorState}>
-              <div className={styles.errorIcon}>⚠</div>
+            <div className={styles.errorState} role="alert">
+              <div className={styles.errorIcon} aria-hidden="true">⚠</div>
               <p>{state.message}</p>
               <button className={styles.retryBtn} onClick={handleReset}>Try again</button>
             </div>

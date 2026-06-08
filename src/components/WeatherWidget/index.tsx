@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Link from '@docusaurus/Link';
 import styles from './styles.module.css';
 
 type WeatherData = {
@@ -63,8 +64,9 @@ export default function WeatherWidget() {
     <section className={styles.widgetSection}>
       <div className="container">
         <div className={styles.widgetHeader}>
-          <h2>Try it Live</h2>
-          <p>Fetch real weather data using your OpenWeatherMap API key.</p>
+          <span className={styles.eyebrow}>With your API key</span>
+          <h2>Try the OpenWeatherMap API</h2>
+          <p>Fetch real weather data for any city using your own OpenWeatherMap key.</p>
         </div>
         <div className={styles.widgetCard}>
           <form onSubmit={fetchWeather} className={styles.form}>
@@ -109,13 +111,13 @@ export default function WeatherWidget() {
           </form>
 
           {error && (
-            <div className={styles.errorBox}>
-              <span>⚠</span> {error}
+            <div className={styles.errorBox} role="alert">
+              <span aria-hidden="true">⚠</span> {error}
             </div>
           )}
 
           {weather && (
-            <div className={styles.result}>
+            <div className={styles.result} aria-live="polite">
               <div className={styles.resultMain}>
                 <img
                   src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
@@ -153,9 +155,7 @@ export default function WeatherWidget() {
         </div>
         <p className={styles.disclaimer}>
           No API key?{' '}
-          <a href="/openweather-docs/docs/getting-started/get-api-key">
-            Get one free
-          </a>{' '}
+          <Link to="/docs/getting-started/get-api-key">Get one free</Link>{' '}
           — activation takes ~2 hours. Your key is stored only in your browser.
         </p>
       </div>

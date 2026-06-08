@@ -1,9 +1,40 @@
 /* GeoWeather dashboard */
 
 .section {
-  padding: 4rem 0;
+  padding: 5rem 0;
   background-color: var(--ifm-background-color);
   border-bottom: 1px solid var(--ifm-border-color);
+}
+
+.header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 2.5rem;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ifm-font-color-secondary);
+  margin-bottom: 0.85rem;
+}
+
+.header h2 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.75rem;
+  color: var(--ifm-font-color-base);
+}
+
+.header p {
+  font-size: 1.1rem;
+  color: var(--ifm-font-color-secondary);
+  margin: 0;
+  line-height: 1.6;
 }
 
 .card {
@@ -40,19 +71,12 @@
   margin-bottom: 1rem;
 }
 
-.idleTitle {
-  font-size: 1.6rem;
-  font-weight: 800;
-  margin-bottom: 0.5rem;
-  color: var(--ifm-font-color-base);
-}
-
 .idleDesc {
   font-size: 0.95rem;
   color: var(--ifm-font-color-secondary);
   margin-bottom: 1.75rem;
-  max-width: 360px;
-  line-height: 1.5;
+  max-width: 400px;
+  line-height: 1.55;
 }
 
 .locateBtn {

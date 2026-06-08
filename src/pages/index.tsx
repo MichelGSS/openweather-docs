@@ -8,6 +8,7 @@ import BrowserOnly from '@docusaurus/BrowserOnly';
 import styles from './index.module.css';
 import WeatherWidget from '../components/WeatherWidget';
 import GeoWeather from '../components/GeoWeather';
+import Reveal from '../components/Reveal';
 
 function WeatherIllustration() {
   const rays = [0, 45, 90, 135, 180, 225, 270, 315];
@@ -54,15 +55,34 @@ function WeatherIllustration() {
   );
 }
 
+function SectionHeading({
+  eyebrow,
+  title,
+  subtitle,
+}: {
+  eyebrow: string;
+  title: string;
+  subtitle?: string;
+}) {
+  return (
+    <div className={styles.sectionHeading}>
+      <span className={styles.eyebrow}>{eyebrow}</span>
+      <h2>{title}</h2>
+      {subtitle && <p>{subtitle}</p>}
+    </div>
+  );
+}
+
 function HomepageHeader() {
-  const {siteConfig} = useDocusaurusContext();
   return (
     <header className={clsx('hero', styles.heroBanner)}>
+      <div className={styles.heroGlow} aria-hidden="true" />
       <div className="container">
         <WeatherIllustration />
+        <span className={styles.heroEyebrow}>Unofficial · Developer-focused documentation</span>
         <h1 className="hero__title">Build with Real Weather Data</h1>
         <p className="hero__subtitle">
-          Explore the unofficial, developer-focused documentation for the OpenWeatherMap REST API.{' '}
+          A clear, structured guide to the OpenWeatherMap REST API.{' '}
           Learn how to fetch live conditions, 5-day forecasts, and geocoding data.
         </p>
         <div className={styles.buttons}>
@@ -73,10 +93,15 @@ function HomepageHeader() {
           </Link>
           <Link
             className="button button--outline button--secondary button--lg"
-            to="/docs/reference/current-weather">
-            API Reference →
+            to="/playground">
+            Try the API Live →
           </Link>
         </div>
+        <ul className={styles.trustRow} aria-label="Highlights">
+          <li><span className={styles.trustDot} aria-hidden="true" />REST + JSON</li>
+          <li><span className={styles.trustDot} aria-hidden="true" />Node.js &amp; Python samples</li>
+          <li><span className={styles.trustDot} aria-hidden="true" />Diátaxis-structured</li>
+        </ul>
       </div>
     </header>
   );
@@ -130,14 +155,10 @@ function Feature({title, description, icon, link, cta}: FeatureItem) {
   return (
     <div className={clsx('col col--4', styles.featureCol)}>
       <Link to={link} className={styles.featureCard}>
-        <div className="text--center">
-          <div className={styles.featureIcon}>{icon}</div>
-        </div>
-        <div className="text--center padding-horiz--md">
-          <h3>{title}</h3>
-          <p>{description}</p>
-          <span className={styles.featureCta}>{cta} →</span>
-        </div>
+        <div className={styles.featureIcon} aria-hidden="true">{icon}</div>
+        <h3>{title}</h3>
+        <p>{description}</p>
+        <span className={styles.featureCta}>{cta} →</span>
       </Link>
     </div>
   );
@@ -147,6 +168,11 @@ function HomepageFeatures() {
   return (
     <section className={styles.features}>
       <div className="container">
+        <SectionHeading
+          eyebrow="Why these docs"
+          title="Documentation built for engineers"
+          subtitle="Everything you need to integrate weather data — nothing you don't."
+        />
         <div className="row">
           {FeatureList.map((props, idx) => (
             <Feature key={idx} {...props} />
@@ -163,18 +189,19 @@ function CodeHighlightSection() {
       <div className="container">
         <div className={clsx('row', styles.codeSectionRow)}>
           <div className={clsx('col col--6', styles.codeSectionText)}>
-            <h2>Integrate in seconds</h2>
+            <span className={styles.eyebrow}>Integrate in seconds</span>
+            <h2>One request away from live weather</h2>
             <p>
               The OpenWeatherMap API uses standard REST conventions and JSON responses, making it compatible with any modern tech stack.
             </p>
             <ul className={styles.checklist}>
-              <li>✓ Secure Authentication</li>
-              <li>✓ Metric &amp; Imperial units</li>
-              <li>✓ Multilingual support</li>
+              <li>Secure API-key authentication</li>
+              <li>Metric &amp; imperial units</li>
+              <li>Multilingual responses</li>
             </ul>
             <div className={styles.codeSectionActions}>
               <Link className="button button--secondary" to="/docs/getting-started/first-request">
-                Try it now →
+                Make your first request →
               </Link>
             </div>
           </div>
@@ -217,10 +244,10 @@ export default function Home(): React.JSX.Element {
       description="Unofficial API documentation for OpenWeatherMap — a Technical Writing portfolio sample.">
       <HomepageHeader />
       <main>
-        <HomepageFeatures />
-        <BrowserOnly>{() => <GeoWeather />}</BrowserOnly>
-        <BrowserOnly>{() => <WeatherWidget />}</BrowserOnly>
-        <CodeHighlightSection />
+        <Reveal><HomepageFeatures /></Reveal>
+        <Reveal><BrowserOnly>{() => <GeoWeather />}</BrowserOnly></Reveal>
+        <Reveal><BrowserOnly>{() => <WeatherWidget />}</BrowserOnly></Reveal>
+        <Reveal><CodeHighlightSection /></Reveal>
       </main>
     </Layout>
   );
