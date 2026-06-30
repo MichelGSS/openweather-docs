@@ -72,7 +72,7 @@ export default function WeatherWidget() {
           <form onSubmit={fetchWeather} className={styles.form}>
             <div className={styles.formRow}>
               <div className={styles.inputGroup}>
-                <label className={styles.label}>API Key</label>
+                <label className={styles.label}>API key</label>
                 <div className={styles.keyInputWrapper}>
                   <input
                     type="password"
@@ -104,7 +104,7 @@ export default function WeatherWidget() {
               <div className={styles.inputGroup}>
                 <label className={styles.label}>&nbsp;</label>
                 <button type="submit" className={styles.fetchBtn} disabled={loading}>
-                  {loading ? 'Fetching…' : 'Fetch Weather →'}
+                  {loading ? 'Fetching…' : 'Fetch weather →'}
                 </button>
               </div>
             </div>

@@ -11,6 +11,7 @@ const config: Config = {
   projectName: 'openweather-docs',
   trailingSlash: false,
   onBrokenLinks: 'throw',
+  favicon: 'img/favicon.svg',
 
   presets: [
     [
@@ -73,6 +74,11 @@ const config: Config = {
     prism: {
       theme: prismThemes.vsDark,
       additionalLanguages: ['bash', 'python', 'json'],
+    },
+    mermaid: {
+      options: {
+        fontSize: 26,
+      },
     },
   } satisfies Preset.ThemeConfig,
 

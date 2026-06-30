@@ -80,7 +80,7 @@ function HomepageHeader() {
       <div className="container">
         <WeatherIllustration />
         <span className={styles.heroEyebrow}>Unofficial · Developer-focused documentation</span>
-        <h1 className="hero__title">Build with Real Weather Data</h1>
+        <h1 className="hero__title">Build with real weather data</h1>
         <p className="hero__subtitle">
           A clear, structured guide to the OpenWeatherMap REST API.{' '}
           Learn how to fetch live conditions, 5-day forecasts, and geocoding data.
@@ -89,12 +89,12 @@ function HomepageHeader() {
           <Link
             className="button button--secondary button--lg"
             to="/docs/getting-started/prerequisites">
-            Get Started — 5 min
+            Get started — 5 min
           </Link>
           <Link
             className="button button--outline button--secondary button--lg"
             to="/playground">
-            Try the API Live →
+            Try the API live →
           </Link>
         </div>
         <ul className={styles.trustRow} aria-label="Highlights">
@@ -107,9 +107,51 @@ function HomepageHeader() {
   );
 }
 
+const iconProps = {
+  width: 32,
+  height: 32,
+  viewBox: '0 0 24 24',
+  fill: 'none',
+  stroke: 'currentColor',
+  strokeWidth: 2,
+  strokeLinecap: 'round' as const,
+  strokeLinejoin: 'round' as const,
+};
+
+// Lightning bolt — quick to start
+function BoltIcon() {
+  return (
+    <svg {...iconProps} aria-hidden="true">
+      <path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z" />
+    </svg>
+  );
+}
+
+// Terminal — developer focused
+function TerminalIcon() {
+  return (
+    <svg {...iconProps} aria-hidden="true">
+      <rect x="2" y="4" width="20" height="16" rx="2" />
+      <path d="m6 9 3 3-3 3" />
+      <path d="M12 15h5" />
+    </svg>
+  );
+}
+
+// Stacked layers — Diátaxis framework
+function LayersIcon() {
+  return (
+    <svg {...iconProps} aria-hidden="true">
+      <path d="m12 2 9 5-9 5-9-5 9-5z" />
+      <path d="m3 12 9 5 9-5" />
+      <path d="m3 17 9 5 9-5" />
+    </svg>
+  );
+}
+
 type FeatureItem = {
   title: string;
-  icon: string;
+  Icon: React.ComponentType;
   link: string;
   cta: string;
   description: React.ReactNode;
@@ -117,10 +159,10 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Easy to Use',
-    icon: '⚡',
+    title: 'Quick to start',
+    Icon: BoltIcon,
     link: '/docs/getting-started/prerequisites',
-    cta: 'Get Started',
+    cta: 'Get started',
     description: (
       <>
         Start making API requests in minutes. Detailed quickstarts and code samples in Node.js and Python get you up and running without friction.
@@ -128,10 +170,10 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
-    title: 'Developer Focused',
-    icon: '💻',
+    title: 'Developer focused',
+    Icon: TerminalIcon,
     link: '/docs/reference/authentication',
-    cta: 'View API Reference',
+    cta: 'View API reference',
     description: (
       <>
         Clear API references, error code handling, and rate limit explanations designed specifically for software engineers building production apps.
@@ -139,10 +181,10 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
-    title: 'Diátaxis Framework',
-    icon: '📚',
+    title: 'Diátaxis framework',
+    Icon: LayersIcon,
     link: '/docs/intro',
-    cta: 'Explore the Docs',
+    cta: 'Explore the docs',
     description: (
       <>
         Structured for maximum cognitive ease. Find tutorials, how-to guides, reference material, and conceptual explanations cleanly separated.
@@ -151,11 +193,11 @@ const FeatureList: FeatureItem[] = [
   },
 ];
 
-function Feature({title, description, icon, link, cta}: FeatureItem) {
+function Feature({title, description, Icon, link, cta}: FeatureItem) {
   return (
     <div className={clsx('col col--4', styles.featureCol)}>
       <Link to={link} className={styles.featureCard}>
-        <div className={styles.featureIcon} aria-hidden="true">{icon}</div>
+        <div className={styles.featureIcon} aria-hidden="true"><Icon /></div>
         <h3>{title}</h3>
         <p>{description}</p>
         <span className={styles.featureCta}>{cta} →</span>

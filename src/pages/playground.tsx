@@ -176,7 +176,7 @@ export default function Playground() {
 
           {/* API Key Bar */}
           <div className={styles.keyBar}>
-            <label className={styles.keyLabel}>API Key</label>
+            <label className={styles.keyLabel}>API key</label>
             <div className={styles.keyRow}>
               <input
                 type="password"
@@ -253,7 +253,7 @@ export default function Playground() {
                   </div>
                 ))}
                 <button type="submit" className={styles.sendBtn} disabled={loading || !apiKey.trim()}>
-                  {loading ? 'Sending…' : 'Send Request →'}
+                  {loading ? 'Sending…' : 'Send request →'}
                 </button>
               </form>
             </div>
