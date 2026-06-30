@@ -2,13 +2,13 @@
 sidebar_position: 5
 ---
 
-# Set Up Rate Limiting
+# Set up rate limiting
 
 The Free Tier of OpenWeatherMap allows **60 requests per minute**. If you exceed this, you will receive a `429 Too Many Requests` response.
 
-If you are fetching data for multiple locations in a loop, or if you have high traffic on your frontend, you must implement Rate Limiting.
+If you are fetching data for multiple locations in a loop, or if you have high traffic on your frontend, you must implement rate limiting.
 
-## Frontend vs Backend Calls
+## Frontend vs. backend calls
 
 **Never call the API directly from the frontend in production.**
 
@@ -16,9 +16,20 @@ If 100 users open your website at the same time, your frontend will make 100 API
 
 Instead, route calls through your own backend proxy.
 
-## Setting up a Caching Proxy (Node.js/Express)
+## Setting up a caching proxy (Node.js/Express)
 
 The best way to respect rate limits is to **cache** the data. Weather doesn't change every second. Caching data for 10 minutes is completely acceptable.
+
+```mermaid
+graph TD
+    A["Client requests weather"] --> B{"Cached and under 10 min old?"}
+    B -->|"Yes"| C["Serve from cache"]
+    B -->|"No"| D["Fetch from OpenWeatherMap"]
+    D --> E["Store response with timestamp"]
+    E --> F["Return data to client"]
+    C --> G["Client receives weather"]
+    F --> G
+```
 
 Here is an example using Express and an in-memory cache:
 
@@ -72,9 +83,9 @@ app.listen(3000, () => console.log('Proxy running on port 3000'));
 ```
 
 ### Why this is powerful:
-If 1,000 users ask your backend for the weather in "London" within a 10-minute window, your backend makes **exactly 1 request** to OpenWeatherMap. The other 999 are served instantly from memory. You will never hit the 60req/min limit.
+If 1,000 users ask your backend for the weather in "London" within a 10-minute window, your backend makes **exactly 1 request** to OpenWeatherMap. The other 999 are served instantly from memory. You will never hit the 60 req/min limit.
 
-## Dealing with Batch Scripts
+## Dealing with batch scripts
 
 If you are running a cron-job or batch script that needs to fetch 100 cities, add a delay between requests to ensure you don't exceed 60 per minute (1 per second).
 

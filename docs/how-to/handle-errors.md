@@ -2,11 +2,11 @@
 sidebar_position: 4
 ---
 
-# Handle Errors Gracefully
+# Handle errors gracefully
 
 Robust applications don't crash when APIs fail. The OpenWeatherMap API uses standard HTTP status codes, but also returns a JSON payload detailing the error.
 
-## The Error Format
+## The error format
 
 When a request fails, the API returns a JSON object containing a `cod` (status code) and a `message`.
 
@@ -21,11 +21,24 @@ When a request fails, the API returns a JSON object containing a `cod` (status c
 Note that sometimes `cod` is returned as a String (e.g., `"404"`) and sometimes as an Integer (e.g., `401`). When writing logic to check this field, cast it to an Integer or rely on the HTTP Response headers instead.
 :::
 
-## Strategy: Rely on HTTP Status Codes
+## Strategy: rely on HTTP status codes
 
 The most reliable way to handle errors is checking the HTTP status code of the response before trying to parse the JSON.
 
-### Node.js (fetch) Example
+```mermaid
+graph TD
+    A["Send API request"] --> B{"Did the request reach the server?"}
+    B -->|"No — network error"| I["Show cached or fallback content"]
+    B -->|"Yes"| C{"response.ok?"}
+    C -->|"Yes"| D["Parse JSON and use the data"]
+    C -->|"No"| E{"HTTP status code?"}
+    E -->|"401"| F["Check your API key"]
+    E -->|"404"| G["Handle 'city not found'"]
+    E -->|"429"| H["Back off and retry later"]
+    E -->|"Other"| J["Log the error message"]
+```
+
+### Node.js (fetch) example
 
 ```javascript
 async function safeGetWeather(city) {
@@ -64,13 +77,13 @@ async function safeGetWeather(city) {
 }
 ```
 
-## Strategy: Fallback Content
+## Strategy: fallback content
 
 If the API is down or the user is offline, you don't want your app to show a blank screen.
 
 1. **Cache previous results:** If you successfully fetched the weather an hour ago, save it in `localStorage` or a database. If the next request fails, show the cached data with a warning: *"Offline: Showing last known conditions."*
 2. **Graceful UI states:** If no cache is available, render a friendly error illustration instead of a broken layout.
 
-## Checking the Error Codes Reference
+## Checking the error codes reference
 
 For a complete list of what status codes mean in the context of OpenWeatherMap, visit the [Error Codes Reference](../reference/error-codes).

@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# Tutorial: Build a Weather CLI Tool (Python)
+# Tutorial: Build a weather CLI tool (Python)
 
 In this tutorial, you'll build a command-line interface (CLI) tool using Python to fetch and display the weather for any location directly from your terminal.
 
@@ -20,7 +20,7 @@ In this tutorial, you'll build a command-line interface (CLI) tool using Python 
 - A valid OpenWeatherMap API key (set as `OPENWEATHER_API_KEY` in your environment)
 - Basic understanding of Python
 
-## Step 1: Set Up the Environment
+## Step 1: Set up the environment
 
 First, create a new directory for your project and set up a virtual environment:
 
@@ -42,7 +42,7 @@ Create the main script file:
 touch weather.py
 ```
 
-## Step 2: Import Modules and Setup Constants
+## Step 2: Import modules and set up constants
 
 Open `weather.py` and start by importing the necessary modules:
 
@@ -60,7 +60,7 @@ if not API_KEY:
     sys.exit(1)
 ```
 
-## Step 3: Parse Command-Line Arguments
+## Step 3: Parse command-line arguments
 
 We'll use `argparse` to allow users to specify the city and preferred units:
 
@@ -73,7 +73,7 @@ def setup_parser():
     return parser
 ```
 
-## Step 4: Fetch and Display the Data
+## Step 4: Fetch and display the data
 
 Now, write the function to interact with the API and format the output:
 
@@ -124,7 +124,7 @@ if __name__ == "__main__":
     main()
 ```
 
-## Step 5: Run Your CLI Tool
+## Step 5: Run your CLI tool
 
 Make the file executable (optional, Linux/macOS) or run it using Python:
 
@@ -148,13 +148,13 @@ Try testing it with imperial units and multi-word cities:
 python weather.py New York -u imperial
 ```
 
-## What You Learned
+## What you learned
 
 - Using `sys` and `os` to safely read environment variables.
 - Using `argparse` to handle CLI flags.
 - Catching HTTP errors cleanly with `requests.raise_for_status()`.
 
-## Next Steps
+## Next steps
 
 - Try expanding this CLI to use the [Geocoding Endpoint](../reference/geocoding) first, then passing coordinates to the weather endpoint.
 - Explore the [5-Day Forecast Endpoint](../reference/forecast) to add a `--forecast` flag.

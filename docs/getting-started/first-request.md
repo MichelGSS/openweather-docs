@@ -45,7 +45,7 @@ print(f"{data['name']}: {data['main']['temp']}°C, {data['weather'][0]['descript
 # Output: Rio de Janeiro: 28.5°C, clear sky
 ```
 
-## Understanding the Response
+## Understanding the response
 
 | Field                        | Description                            |
 |------------------------------|----------------------------------------|

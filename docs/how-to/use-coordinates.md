@@ -2,12 +2,12 @@
 sidebar_position: 3
 ---
 
-# Use Geographic Coordinates
+# Use geographic coordinates
 
-Querying by city name is easy, but querying by Latitude and Longitude is **accurate**. 
+Querying by city name is convenient, but querying by latitude and longitude is **accurate**. 
 OpenWeatherMap highly recommends using geographic coordinates (`lat` and `lon`) for production applications to avoid ambiguity.
 
-## Making a Coordinate Request
+## Making a coordinate request
 
 Instead of the `q` parameter, use `lat` and `lon`:
 
@@ -26,7 +26,17 @@ OpenWeatherMap provides a free Geocoding API specifically for this purpose. The 
 3. Geocoding API returns `lat: 48.8588`, `lon: 2.3200`
 4. Your app calls the Weather API with `lat: 48.8588`, `lon: 2.3200`
 
-### Step 1: Geocode the City
+```mermaid
+graph TD
+    A["User types a city name"] --> B["Call the Geocoding API"]
+    B --> C{"Results returned?"}
+    C -->|"No"| D["Handle 'city not found'"]
+    C -->|"Yes"| E["Read lat and lon"]
+    E --> F["Call the Weather API with coordinates"]
+    F --> G["Display the weather"]
+```
+
+### Step 1: Geocode the city
 
 ```javascript
 const cityName = "Paris";
@@ -43,7 +53,7 @@ const { lat, lon } = geoData[0];
 console.log(`Found Paris at ${lat}, ${lon}`);
 ```
 
-### Step 2: Fetch the Weather
+### Step 2: Fetch the weather
 
 ```javascript
 const weatherResponse = await fetch(
@@ -52,7 +62,7 @@ const weatherResponse = await fetch(
 const weatherData = await weatherResponse.json();
 ```
 
-## Using Browser Geolocation
+## Using browser geolocation
 
 If you are building a web application, you can use the HTML5 Geolocation API to get the user's exact coordinates without asking them to type a city name.
 

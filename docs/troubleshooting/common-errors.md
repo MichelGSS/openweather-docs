@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Common Errors
+# Common errors
 
 Solutions for the most frequently encountered issues when working with
 the OpenWeatherMap API.
@@ -68,7 +68,7 @@ for (const city of cities) {
 }
 ```
 
-## CORS Errors (Browser)
+## CORS errors (browser)
 
 If calling the API from a browser, you may see:
 
@@ -79,7 +79,7 @@ Access-Control-Allow-Origin header is missing
 **Solution:** Use a backend proxy or server-side request. The OpenWeatherMap
 API is not designed for direct browser calls in production.
 
-## Empty or Unexpected Data
+## Empty or unexpected data
 
 | Symptom                        | Cause                       | Solution                    |
 |--------------------------------|-----------------------------|-----------------------------|

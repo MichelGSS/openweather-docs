@@ -2,12 +2,12 @@
 sidebar_position: 3
 ---
 
-# API Architecture Overview
+# API architecture overview
 
 This page explains how the OpenWeatherMap API is structured and how data
 flows from weather stations to your application.
 
-## Request Flow
+## Request flow
 
 ```mermaid
 sequenceDiagram
@@ -24,7 +24,7 @@ sequenceDiagram
     API-->>App: JSON response (200 OK)
 ```
 
-## API Structure
+## API structure
 
 The OpenWeatherMap API follows REST conventions:
 
@@ -38,7 +38,7 @@ graph LR
     D --> G["City coordinates"]
 ```
 
-## Data Freshness
+## Data freshness
 
 Weather data is collected from a global network of stations and updated
 approximately every 10 minutes. When you make an API request, you receive
@@ -50,17 +50,7 @@ the most recent data available for that location.
 | 5-day forecast   | Every 3 hours     | Weather prediction models |
 | Geocoding        | Static            | Location database         |
 
-## Units System
+## Units system
 
-The API supports three unit systems, controlled by the `units` parameter:
-
-| Parameter Value | Temperature | Wind Speed | Description   |
-|-----------------|-------------|------------|---------------|
-| `standard`      | Kelvin (K)  | m/s        | Default       |
-| `metric`        | Celsius (°C)| m/s        | Most countries|
-| `imperial`      | Fahrenheit  | mph        | US            |
-
-:::tip
-Always specify `units=metric` or `units=imperial` explicitly. The default
-(Kelvin) is rarely what developers want and causes confusion.
-:::
+The API supports three unit systems, controlled by the `units` parameter. For
+the full comparison and conversion notes, see [Understanding units](./units).

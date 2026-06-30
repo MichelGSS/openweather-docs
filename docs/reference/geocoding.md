@@ -2,7 +2,7 @@
 sidebar_position: 4
 ---
 
-# Geocoding Endpoint
+# Geocoding endpoint
 
 The Geocoding API allows you to convert a city name into geographic coordinates (Latitude and Longitude), which is highly recommended for accurate weather queries.
 
@@ -12,7 +12,7 @@ The Geocoding API allows you to convert a city name into geographic coordinates 
 GET http://api.openweathermap.org/geo/1.0/direct
 ```
 
-## Query Parameters
+## Query parameters
 
 | Parameter | Type   | Required | Default  | Description                            |
 |-----------|--------|----------|----------|----------------------------------------|
@@ -20,13 +20,13 @@ GET http://api.openweathermap.org/geo/1.0/direct
 | `limit`   | number | No       | 1        | Number of the locations in the API response (up to 5 results) |
 | `appid`   | string | Yes      | —        | Your API key                           |
 
-## Request Example
+## Request example
 
 ```bash
 curl "http://api.openweathermap.org/geo/1.0/direct?q=London&limit=5&appid=YOUR_API_KEY"
 ```
 
-## Response Snippet
+## Response snippet
 
 The response is a JSON array. If multiple cities match your query, and `limit` is set > 1, multiple objects are returned.
 
@@ -55,7 +55,7 @@ The response is a JSON array. If multiple cities match your query, and `limit` i
 ]
 ```
 
-## Reverse Geocoding
+## Reverse geocoding
 
 If you have coordinates and want to know the name of the city, use the Reverse Geocoding endpoint.
 

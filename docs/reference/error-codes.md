@@ -6,9 +6,9 @@ sidebar_position: 5
 
 The OpenWeatherMap API relies on standard HTTP status codes to indicate the success or failure of an API request.
 
-## HTTP Status Codes Overview
+## HTTP status codes overview
 
-| Status Code | Code Title             | Description                                                                 |
+| Status code | Code title             | Description                                                                 |
 |-------------|------------------------|-----------------------------------------------------------------------------|
 | `200`       | OK                     | The request was successful, and data is returned.                           |
 | `400`       | Bad Request            | The request is malformed. Usually caused by missing required parameters.    |
@@ -17,7 +17,7 @@ The OpenWeatherMap API relies on standard HTTP status codes to indicate the succ
 | `429`       | Too Many Requests      | You have exceeded your rate limits.                                         |
 | `5xx`       | Internal Server Error  | OpenWeatherMap servers are encountering issues. Try again later.            |
 
-## Example Error Responses
+## Example error responses
 
 Errors are returned in a standard JSON format, allowing you to parse the `message` string for debugging.
 
@@ -50,6 +50,6 @@ Notice that in `404` responses, the `cod` is often returned as a string rather t
 }
 ```
 
-## Handling Errors
+## Handling errors
 
 When building applications, it is considered a best practice to check the `response.status` (HTTP code) at the network level rather than parsing the JSON for the `cod` field, due to type inconsistencies. See the [Handle Errors Gracefully](../how-to/handle-errors) guide for implementation patterns.

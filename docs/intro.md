@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# OpenWeatherMap API Documentation
+# OpenWeatherMap API documentation
 
 Welcome to the unofficial OpenWeatherMap API documentation, written as a
 Technical Writing portfolio sample by [Michel Silveira](https://michelgss.github.io/portfolio/).
@@ -18,7 +18,7 @@ OpenWeatherMap provides weather data through a simple REST API. With a free
 API key, you can access current conditions, forecasts, and historical data
 for any location worldwide.
 
-## Quick Links
+## Quick links
 
 | I want to...                          | Go to                          |
 |---------------------------------------|--------------------------------|
@@ -28,7 +28,7 @@ for any location worldwide.
 | Fix an error I'm getting              | [Troubleshooting →](./troubleshooting/common-errors) |
 | Understand how the API works          | [Concepts →](./concepts/how-weather-data-works)  |
 
-## About This Documentation
+## About this documentation
 
 This site was built with [Docusaurus](https://docusaurus.io/) and follows
 Docs-as-Code practices (Git, Markdown, CI/CD). The content structure follows

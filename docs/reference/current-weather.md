@@ -12,7 +12,7 @@ Returns current weather data for a specified location.
 GET https://api.openweathermap.org/data/2.5/weather
 ```
 
-## Query Parameters
+## Query parameters
 
 | Parameter | Type   | Required | Default  | Description                            |
 |-----------|--------|----------|----------|----------------------------------------|
@@ -25,7 +25,7 @@ GET https://api.openweathermap.org/data/2.5/weather
 
 *Provide either `q` OR `lat`+`lon`. Not both.
 
-## Request Examples
+## Request examples
 
 **By city name:**
 
@@ -86,7 +86,7 @@ curl "https://api.openweathermap.org/data/2.5/weather?lat=51.5085&lon=-0.1257&un
 }
 ```
 
-## Response Fields
+## Response fields
 
 | Field                   | Type   | Description                                      |
 |-------------------------|--------|--------------------------------------------------|
@@ -113,6 +113,6 @@ curl "https://api.openweathermap.org/data/2.5/weather?lat=51.5085&lon=-0.1257&un
 | `name`                  | string | City name                                        |
 | `cod`                   | number | HTTP status code                                 |
 
-## Error Responses
+## Error responses
 
 See [Error Codes](./error-codes) for a complete list.

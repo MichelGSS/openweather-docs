@@ -20,7 +20,7 @@ Before you start, make sure you have the following:
 - **Basic knowledge of REST APIs** — Understanding of HTTP methods, status
   codes, and JSON
 
-## Check Your Setup
+## Check your setup
 
 Verify Node.js is installed:
 

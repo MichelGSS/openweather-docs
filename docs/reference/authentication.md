@@ -6,7 +6,7 @@ sidebar_position: 1
 
 All OpenWeatherMap API requests require an API key passed as a query parameter.
 
-## API Key
+## API key
 
 Include your API key in every request using the `appid` query parameter:
 
@@ -18,7 +18,7 @@ GET https://api.openweathermap.org/data/2.5/weather?q=London&appid=YOUR_API_KEY
 |-----------|--------|----------|--------------------|
 | `appid`   | string | Yes      | Your API key       |
 
-## Free Tier Limits
+## Free tier limits
 
 | Limit              | Value                           |
 |---------------------|---------------------------------|
@@ -27,7 +27,7 @@ GET https://api.openweathermap.org/data/2.5/weather?q=London&appid=YOUR_API_KEY
 | Endpoints available | Current weather, 5-day forecast |
 | Data freshness      | Updated every 10 minutes        |
 
-## Authentication Errors
+## Authentication errors
 
 | Status Code | Meaning                            | Solution                          |
 |-------------|------------------------------------|-----------------------------------|
@@ -35,7 +35,7 @@ GET https://api.openweathermap.org/data/2.5/weather?q=London&appid=YOUR_API_KEY
 | `401`       | API key not activated              | Wait up to 2 hours after creation |
 | `429`       | Rate limit exceeded                | Reduce request frequency          |
 
-## Security Best Practices
+## Security best practices
 
 :::warning
 Never hardcode your API key in source code or commit it to Git repositories.

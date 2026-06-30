@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# 5-Day Forecast Endpoint
+# 5-day forecast endpoint
 
 Returns weather forecasting data with 3-hour steps for the next 5 days.
 
@@ -12,7 +12,7 @@ Returns weather forecasting data with 3-hour steps for the next 5 days.
 GET https://api.openweathermap.org/data/2.5/forecast
 ```
 
-## Query Parameters
+## Query parameters
 
 | Parameter | Type   | Required | Default  | Description                            |
 |-----------|--------|----------|----------|----------------------------------------|
@@ -26,13 +26,13 @@ GET https://api.openweathermap.org/data/2.5/forecast
 
 *\*Provide either `q` OR `lat`+`lon`.*
 
-## Request Example
+## Request example
 
 ```bash
 curl "https://api.openweathermap.org/data/2.5/forecast?lat=44.34&lon=10.99&appid=YOUR_API_KEY"
 ```
 
-## Response Snippet
+## Response snippet
 
 ```json
 {
@@ -96,7 +96,7 @@ curl "https://api.openweathermap.org/data/2.5/forecast?lat=44.34&lon=10.99&appid
 }
 ```
 
-## Response Fields
+## Response fields
 
 *The inner structures of `main`, `weather`, `clouds`, and `wind` are identical to the [Current Weather](./current-weather) endpoint.*
 

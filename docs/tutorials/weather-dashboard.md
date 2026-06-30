@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Tutorial: Build a Weather Dashboard (Node.js)
+# Tutorial: Build a weather dashboard (Node.js)
 
 In this tutorial, you'll build a simple weather dashboard that displays
 current conditions for multiple cities. By the end, you'll have a working
@@ -21,7 +21,7 @@ Node.js script that fetches and formats weather data from the API.
 - Node.js 18+ installed
 - A valid API key
 
-## Step 1: Set Up the Project
+## Step 1: Set up the project
 
 Create a new directory and initialize the project:
 
@@ -30,7 +30,7 @@ mkdir weather-dashboard && cd weather-dashboard
 touch dashboard.js
 ```
 
-## Step 2: Define Your Cities
+## Step 2: Define your cities
 
 Open `dashboard.js` and add the cities you want to track:
 
@@ -41,7 +41,7 @@ const BASE_URL = "https://api.openweathermap.org/data/2.5/weather";
 const cities = ["London", "New York", "Tokyo", "Rio de Janeiro", "Sydney"];
 ```
 
-## Step 3: Create the Fetch Function
+## Step 3: Create the fetch function
 
 Add a function that fetches weather data for a single city:
 
@@ -64,7 +64,7 @@ async function getWeather(city) {
 }
 ```
 
-## Step 4: Format the Output
+## Step 4: Format the output
 
 Add a function that formats the weather data into a readable line:
 
@@ -77,7 +77,7 @@ function formatWeather(data) {
 }
 ```
 
-## Step 5: Build the Dashboard
+## Step 5: Build the dashboard
 
 Add the main function that fetches all cities and displays the results:
 
@@ -101,7 +101,7 @@ async function runDashboard() {
 runDashboard();
 ```
 
-## Step 6: Run It
+## Step 6: Run it
 
 ```bash
 node dashboard.js
@@ -124,13 +124,13 @@ node dashboard.js
  Last updated: 2026-05-09T14:30:00.000Z
 ```
 
-## What You Learned
+## What you learned
 
 - How to make concurrent API requests with `Promise.all`
 - How to handle individual request failures without crashing the whole script
 - How to format and display API data in a user-friendly way
 
-## Next Steps
+## Next steps
 
 - [Build a CLI Tool (Python) →](./weather-cli) for a different approach
 - [Handle Errors Gracefully →](../how-to/handle-errors) for production-ready error handling

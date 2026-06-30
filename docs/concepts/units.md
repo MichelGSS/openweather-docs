@@ -2,17 +2,17 @@
 sidebar_position: 2
 ---
 
-# Understanding Units (Metric vs Imperial)
+# Understanding units (metric vs. imperial)
 
 The OpenWeatherMap API provides a single parameter, `units`, that dictates how all measurable data (temperature, wind speed) is formatted in the response.
 
-## The Default State: Standard (Kelvin)
+## The default state: standard (Kelvin)
 
 If you omit the `units` parameter from your API call, OpenWeatherMap defaults to `standard` units. 
 
 In the `standard` format, temperature is returned in **Kelvin**. This is a common source of confusion for new developers who see an output like `"temp": 298.15` and believe the API is broken.
 
-## Available Unit Systems
+## Available unit systems
 
 You can pass `units=metric` or `units=imperial` in your query string to receive formatted data.
 
@@ -25,7 +25,7 @@ You can pass `units=metric` or `units=imperial` in your query string to receive 
 Notice that **Wind Speed** remains as meters per second (`m/s`) even when requesting `metric` units. If your application expects kilometers per hour (`km/h`), you must convert this manually on the client side by multiplying the `m/s` value by `3.6`.
 :::
 
-## Example Comparison
+## Example comparison
 
 **Metric Request:**
 ```bash

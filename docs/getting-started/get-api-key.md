@@ -7,29 +7,29 @@ sidebar_position: 2
 Every request to the OpenWeatherMap API requires an API key for authentication.
 This guide walks you through generating one.
 
-## Step 1: Create an Account
+## Step 1: Create an account
 
 1. Go to [home.openweathermap.org/users/sign_up](https://home.openweathermap.org/users/sign_up)
 2. Fill in your email, username, and password
 3. Agree to the terms of service
-4. Click **Create Account**
+4. Select **Create Account**
 5. Verify your email address
 
-## Step 2: Generate an API Key
+## Step 2: Generate an API key
 
-1. Log in to your [OpenWeatherMap dashboard](https://home.openweathermap.org/)
-2. Navigate to **API keys** in the top menu
+1. Sign in to your [OpenWeatherMap dashboard](https://home.openweathermap.org/)
+2. Go to **API keys** in the top menu
 3. You'll see a default key already generated
-4. (Optional) Click **Generate** to create a new key with a custom name
+4. (Optional) Select **Generate** to create a new key with a custom name
 
-## Step 3: Wait for Activation
+## Step 3: Wait for activation
 
 :::caution
 New API keys take **up to 2 hours** to activate. If you get a `401` error
 immediately after generating a key, wait and try again.
 :::
 
-## Step 4: Test Your Key
+## Step 4: Test your key
 
 Run this command in your terminal, replacing `YOUR_API_KEY` with your actual key:
 
