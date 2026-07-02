@@ -398,6 +398,16 @@ article,
   }
 }
 
+/* ===== SEARCH (local search dropdown) ===== */
+
+/* The search plugin paints the active suggestion row with --ifm-color-primary
+   and its text with --ifm-color-white. This theme's primary is white in dark
+   mode, which made the active row white-on-white; invert the text color to
+   match the ::selection style below. */
+:root[data-theme='dark'] {
+  --search-local-hit-active-color: #0A0A0A;
+}
+
 /* ===== SCROLL REVEAL ===== */
 
 .reveal {

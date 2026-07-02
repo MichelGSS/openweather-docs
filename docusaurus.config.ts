@@ -57,8 +57,8 @@ const config: Config = {
           position: 'left',
           items: [
             { label: 'Authentication', to: '/docs/reference/authentication' },
-            { label: 'Current Weather', to: '/docs/reference/current-weather' },
-            { label: '5-Day Forecast', to: '/docs/reference/forecast' },
+            { label: 'Current weather', to: '/docs/reference/current-weather' },
+            { label: '5-day forecast', to: '/docs/reference/forecast' },
             { label: 'Geocoding', to: '/docs/reference/geocoding' },
           ],
         },
@@ -88,7 +88,20 @@ const config: Config = {
       onBrokenMarkdownLinks: 'warn',
     },
   },
-  themes: ['@docusaurus/theme-mermaid'],
+  themes: [
+    '@docusaurus/theme-mermaid',
+    [
+      '@easyops-cn/docusaurus-search-local',
+      {
+        hashed: true,
+        language: ['en'],
+        docsRouteBasePath: '/docs',
+        indexBlog: false,
+        highlightSearchTermsOnTargetPage: true,
+        explicitSearchResultPath: true,
+      },
+    ],
+  ],
 };
 
 export default config;
