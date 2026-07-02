@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# Make Your First Request
+# Make your first request
 
 Let's get the current weather for a city. This takes less than 2 minutes.
 
@@ -26,6 +26,13 @@ const data = await response.json();
 console.log(`${data.name}: ${data.main.temp}°C, ${data.weather[0].description}`);
 // Output: Rio de Janeiro: 28.5°C, clear sky
 ```
+
+:::note
+This example requires Node.js 18+ (for the built-in `fetch`) and uses
+top-level `await`, which only works in ES modules. Save the file with the
+`.mjs` extension (e.g., `weather.mjs`) or add `"type": "module"` to your
+`package.json`, then run it with `node weather.mjs`.
+:::
 
 ## Using Python
 
@@ -59,5 +66,5 @@ print(f"{data['name']}: {data['main']['temp']}°C, {data['weather'][0]['descript
 **You're set.** You've authenticated, made a request, and parsed the response.
 
 **Next steps:**
-- [Build a Weather Dashboard →](../tutorials/weather-dashboard) (tutorial)
-- [Explore the API Reference →](../reference/current-weather) (reference)
+- [Build a weather dashboard →](../tutorials/weather-dashboard) (tutorial)
+- [Explore the API reference →](../reference/current-weather) (reference)

@@ -23,7 +23,7 @@ Node.js script that fetches and formats weather data from the API.
 
 ## Step 1: Set up the project
 
-Create a new directory and initialize the project:
+Create a new directory and an empty script file:
 
 ```bash
 mkdir weather-dashboard && cd weather-dashboard
@@ -132,6 +132,6 @@ node dashboard.js
 
 ## Next steps
 
-- [Build a CLI Tool (Python) →](./weather-cli) for a different approach
-- [Handle Errors Gracefully →](../how-to/handle-errors) for production-ready error handling
+- [Build a CLI tool (Python) →](./weather-cli) for a different approach
+- [Handle errors gracefully →](../how-to/handle-errors) for production-ready error handling
 - [API Reference →](../reference/current-weather) for all available fields

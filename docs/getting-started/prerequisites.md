@@ -38,4 +38,4 @@ python3 --version
 
 If either command fails, install the missing runtime before proceeding.
 
-**Next:** [Get Your API Key →](./get-api-key)
+**Next:** [Get your API key →](./get-api-key)

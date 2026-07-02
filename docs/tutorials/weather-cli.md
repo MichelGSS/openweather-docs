@@ -156,5 +156,5 @@ python weather.py New York -u imperial
 
 ## Next steps
 
-- Try expanding this CLI to use the [Geocoding Endpoint](../reference/geocoding) first, then passing coordinates to the weather endpoint.
-- Explore the [5-Day Forecast Endpoint](../reference/forecast) to add a `--forecast` flag.
+- Try expanding this CLI to use the [Geocoding endpoint](../reference/geocoding) first, then passing coordinates to the weather endpoint.
+- Explore the [5-day forecast endpoint](../reference/forecast) to add a `--forecast` flag.

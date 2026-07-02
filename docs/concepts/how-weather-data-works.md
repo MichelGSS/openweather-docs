@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# How Weather Data Works
+# How weather data works
 
 When you request weather data from the OpenWeatherMap API, you aren't communicating with a single thermometer. You are accessing a massive, aggregated database powered by complex meteorological systems.
 

@@ -9,7 +9,7 @@ The Geocoding API allows you to convert a city name into geographic coordinates 
 ## Endpoint
 
 ```
-GET http://api.openweathermap.org/geo/1.0/direct
+GET https://api.openweathermap.org/geo/1.0/direct
 ```
 
 ## Query parameters
@@ -23,12 +23,12 @@ GET http://api.openweathermap.org/geo/1.0/direct
 ## Request example
 
 ```bash
-curl "http://api.openweathermap.org/geo/1.0/direct?q=London&limit=5&appid=YOUR_API_KEY"
+curl "https://api.openweathermap.org/geo/1.0/direct?q=London&limit=5&appid=YOUR_API_KEY"
 ```
 
 ## Response snippet
 
-The response is a JSON array. If multiple cities match your query, and `limit` is set > 1, multiple objects are returned.
+The response is a JSON array. If multiple cities match your query, and `limit` is set > 1, multiple objects are returned. The example below is truncated: the real `local_names` object contains dozens of translations.
 
 ```json
 [
@@ -37,8 +37,7 @@ The response is a JSON array. If multiple cities match your query, and `limit` i
     "local_names": {
       "en": "London",
       "ru": "Лондон",
-      "ar": "Лондон",
-      // ... dozens of translations ...
+      "ar": "لندن"
     },
     "lat": 51.5073219,
     "lon": -0.1276474,
@@ -60,12 +59,12 @@ The response is a JSON array. If multiple cities match your query, and `limit` i
 If you have coordinates and want to know the name of the city, use the Reverse Geocoding endpoint.
 
 ```
-GET http://api.openweathermap.org/geo/1.0/reverse
+GET https://api.openweathermap.org/geo/1.0/reverse
 ```
 
 **Parameters:** `lat`, `lon`, `limit`, `appid`.
 
 **Example:**
 ```bash
-curl "http://api.openweathermap.org/geo/1.0/reverse?lat=51.5098&lon=-0.1180&limit=1&appid=YOUR_API_KEY"
+curl "https://api.openweathermap.org/geo/1.0/reverse?lat=51.5098&lon=-0.1180&limit=1&appid=YOUR_API_KEY"
 ```

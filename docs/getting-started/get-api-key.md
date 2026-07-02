@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# Get Your API Key
+# Get your API key
 
 Every request to the OpenWeatherMap API requires an API key for authentication.
 This guide walks you through generating one.
@@ -59,4 +59,4 @@ export OPENWEATHER_API_KEY="your_key_here"
 ```
 :::
 
-**Next:** [Make Your First Request →](./first-request)
+**Next:** [Make your first request →](./first-request)

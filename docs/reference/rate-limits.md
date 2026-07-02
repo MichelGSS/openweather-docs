@@ -2,7 +2,7 @@
 sidebar_position: 6
 ---
 
-# Rate Limits
+# Rate limits
 
 Access to the OpenWeatherMap API is restricted based on your subscription tier to ensure platform stability. 
 
@@ -15,7 +15,7 @@ When you generate a free API key, your account is placed on the free tier. The l
 | **Requests per minute** | 60 calls / minute    |
 | **Requests per month**  | 1,000,000 calls      |
 | **Available endpoints** | Current Weather, 5-Day Forecast, Geocoding, Air Pollution |
-| **Data freshness**      | ~10–15 minutes       |
+| **Data freshness**      | ~10 minutes          |
 
 ## What happens when you exceed the limit?
 

@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# Current Weather
+# Current weather endpoint
 
 Returns current weather data for a specified location.
 
@@ -14,16 +14,22 @@ GET https://api.openweathermap.org/data/2.5/weather
 
 ## Query parameters
 
+### Location (choose one)
+
+Provide the location as a city name **or** as a coordinate pair — not both.
+
+| Parameter    | Type   | Description                                  |
+|--------------|--------|----------------------------------------------|
+| `q`          | string | City name (e.g., `London`, `Rio+de+Janeiro`) |
+| `lat`, `lon` | number | Latitude and longitude coordinates           |
+
+### Other parameters
+
 | Parameter | Type   | Required | Default  | Description                            |
 |-----------|--------|----------|----------|----------------------------------------|
-| `q`       | string | Yes*     | —        | City name (e.g., `London`, `Rio+de+Janeiro`) |
-| `lat`     | number | Yes*     | —        | Latitude coordinate                    |
-| `lon`     | number | Yes*     | —        | Longitude coordinate                   |
 | `appid`   | string | Yes      | —        | Your API key                           |
 | `units`   | string | No       | standard | `standard` (Kelvin), `metric` (Celsius), `imperial` (Fahrenheit) |
 | `lang`    | string | No       | en       | Response language (e.g., `pt_br`, `es`, `fr`) |
-
-*Provide either `q` OR `lat`+`lon`. Not both.
 
 ## Request examples
 
@@ -115,4 +121,4 @@ curl "https://api.openweathermap.org/data/2.5/weather?lat=51.5085&lon=-0.1257&un
 
 ## Error responses
 
-See [Error Codes](./error-codes) for a complete list.
+See [Error codes](./error-codes) for a complete list.

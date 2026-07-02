@@ -2,9 +2,9 @@
 sidebar_position: 3
 ---
 
-# Getting Help
+# Getting help
 
-If you are experiencing issues not covered in the [Common Errors](./common-errors) or [FAQ](./faq) pages, there are several avenues to find solutions.
+If you are experiencing issues not covered in the [Common errors](./common-errors) or [FAQ](./faq) pages, there are several avenues to find solutions.
 
 ## 1. Check the Official Documentation
 This portfolio sample covers the core concepts, but the official OpenWeatherMap documentation is exhaustive and frequently updated.

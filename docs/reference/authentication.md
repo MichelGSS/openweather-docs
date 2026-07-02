@@ -20,12 +20,9 @@ GET https://api.openweathermap.org/data/2.5/weather?q=London&appid=YOUR_API_KEY
 
 ## Free tier limits
 
-| Limit              | Value                           |
-|---------------------|---------------------------------|
-| Requests per minute | 60                              |
-| Requests per month  | 1,000,000                       |
-| Endpoints available | Current weather, 5-day forecast |
-| Data freshness      | Updated every 10 minutes        |
+Free API keys are subject to request quotas and endpoint restrictions. For the
+full list of limits, available endpoints, and data freshness, see
+[Rate limits](./rate-limits).
 
 ## Authentication errors
 

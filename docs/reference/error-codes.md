@@ -2,7 +2,7 @@
 sidebar_position: 5
 ---
 
-# Error Codes
+# Error codes
 
 The OpenWeatherMap API relies on standard HTTP status codes to indicate the success or failure of an API request.
 
@@ -52,4 +52,4 @@ Notice that in `404` responses, the `cod` is often returned as a string rather t
 
 ## Handling errors
 
-When building applications, it is considered a best practice to check the `response.status` (HTTP code) at the network level rather than parsing the JSON for the `cod` field, due to type inconsistencies. See the [Handle Errors Gracefully](../how-to/handle-errors) guide for implementation patterns.
+When building applications, it is considered a best practice to check the `response.status` (HTTP code) at the network level rather than parsing the JSON for the `cod` field, due to type inconsistencies. See the [Handle errors gracefully](../how-to/handle-errors) guide for implementation patterns.

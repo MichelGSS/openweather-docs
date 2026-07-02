@@ -86,4 +86,4 @@ If the API is down or the user is offline, you don't want your app to show a bla
 
 ## Checking the error codes reference
 
-For a complete list of what status codes mean in the context of OpenWeatherMap, visit the [Error Codes Reference](../reference/error-codes).
+For a complete list of what status codes mean in the context of OpenWeatherMap, visit the [Error codes](../reference/error-codes) reference.

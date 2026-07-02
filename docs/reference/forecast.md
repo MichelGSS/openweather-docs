@@ -14,17 +14,23 @@ GET https://api.openweathermap.org/data/2.5/forecast
 
 ## Query parameters
 
+### Location (choose one)
+
+Provide the location as a city name **or** as a coordinate pair — not both.
+
+| Parameter    | Type   | Description                                  |
+|--------------|--------|----------------------------------------------|
+| `q`          | string | City name (e.g., `London`, `Rio+de+Janeiro`) |
+| `lat`, `lon` | number | Latitude and longitude coordinates           |
+
+### Other parameters
+
 | Parameter | Type   | Required | Default  | Description                            |
 |-----------|--------|----------|----------|----------------------------------------|
-| `q`       | string | Yes*     | —        | City name (e.g., `London`, `Rio+de+Janeiro`) |
-| `lat`     | number | Yes*     | —        | Latitude coordinate                    |
-| `lon`     | number | Yes*     | —        | Longitude coordinate                   |
 | `appid`   | string | Yes      | —        | Your API key                           |
-| `cnt`     | number | No       | 40       | A number of timestamps, which will be returned in the API response. |
+| `cnt`     | number | No       | 40       | Number of timestamps returned in the API response |
 | `units`   | string | No       | standard | `standard`, `metric`, `imperial`       |
 | `lang`    | string | No       | en       | Response language                      |
-
-*\*Provide either `q` OR `lat`+`lon`.*
 
 ## Request example
 
@@ -98,7 +104,7 @@ curl "https://api.openweathermap.org/data/2.5/forecast?lat=44.34&lon=10.99&appid
 
 ## Response fields
 
-*The inner structures of `main`, `weather`, `clouds`, and `wind` are identical to the [Current Weather](./current-weather) endpoint.*
+*The inner structures of `main`, `weather`, `clouds`, and `wind` are identical to the [Current weather endpoint](./current-weather).*
 
 | Field               | Type   | Description                                      |
 |---------------------|--------|--------------------------------------------------|

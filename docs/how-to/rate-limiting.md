@@ -31,11 +31,20 @@ graph TD
     F --> G
 ```
 
-Here is an example using Express and an in-memory cache:
+Here is an example using Express and an in-memory cache. Create a project and
+install Express (Node.js 18+ includes `fetch` natively, so no extra HTTP
+library is needed):
+
+```bash
+mkdir weather-proxy && cd weather-proxy
+npm init -y
+npm install express
+```
+
+Then create `server.js`:
 
 ```javascript
 const express = require('express');
-const fetch = require('node-fetch');
 const app = express();
 
 const API_KEY = process.env.OPENWEATHER_API_KEY;
@@ -81,6 +90,8 @@ app.get('/api/weather/:city', async (req, res) => {
 
 app.listen(3000, () => console.log('Proxy running on port 3000'));
 ```
+
+Start it with `node server.js`.
 
 ### Why this is powerful:
 If 1,000 users ask your backend for the weather in "London" within a 10-minute window, your backend makes **exactly 1 request** to OpenWeatherMap. The other 999 are served instantly from memory. You will never hit the 60 req/min limit.
