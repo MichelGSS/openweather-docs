@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkopenweather_docs=globalThis.webpackChunkopenweather_docs||[]).push([[8491],{8491(e,a,c){c.d(a,{createPacketServices:()=>s.$});var s=c(9773);c(1400)}}]);
