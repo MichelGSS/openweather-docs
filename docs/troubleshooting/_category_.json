@@ -1,4 +1,9 @@
 {
   "label": "Troubleshooting",
-  "position": 7
+  "position": 7,
+  "link": {
+    "type": "generated-index",
+    "title": "Troubleshooting",
+    "description": "Diagnose and resolve HTTP errors, browser CORS failures, unexpected payload values, and rate-limit blocks."
+  }
 }

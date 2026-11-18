@@ -18,29 +18,29 @@ type RevealProps = {
  */
 export default function Reveal({ children, delay = 0, className, as = 'div' }: RevealProps) {
   const ref = useRef<HTMLElement | null>(null);
-  const [mounted, setMounted] = useState(false);
-  const [visible, setVisible] = useState(false);
+  const [entered, setEntered] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
-
     const el = ref.current;
     if (!el) return;
 
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduceMotion) {
-      setVisible(true);
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      return;
+    }
+
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
       return;
     }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setVisible(true);
+          setEntered(true);
           observer.disconnect();
         }
       },
-      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+      { threshold: 0.05, rootMargin: '0px 0px 20px 0px' }
     );
 
     observer.observe(el);
@@ -52,8 +52,8 @@ export default function Reveal({ children, delay = 0, className, as = 'div' }: R
   return (
     <Tag
       ref={ref as React.Ref<HTMLDivElement>}
-      className={clsx('reveal', mounted && !visible && 'reveal--hidden', className)}
-      style={delay ? { transitionDelay: `${delay}ms` } : undefined}
+      className={clsx('reveal', entered && 'reveal--enter', className)}
+      style={delay ? { animationDelay: `${delay}ms` } : undefined}
     >
       {children}
     </Tag>

@@ -1,4 +1,8 @@
 {
   "label": "Tutorials",
-  "position": 3
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "description": "Hands-on, step-by-step lessons that guide you through building complete applications with the OpenWeatherMap API."
+  }
 }

@@ -1,4 +1,8 @@
 {
-  "label": "How-to Guides",
-  "position": 4
+  "label": "How-to guides",
+  "position": 4,
+  "link": {
+    "type": "generated-index",
+    "description": "Task-oriented recipes for solving common real-world integration problems with the OpenWeatherMap API."
+  }
 }

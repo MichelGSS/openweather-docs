@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" fill="none">
+  <defs>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M 48 0 L 0 0 0 48" fill="none" stroke="#181818" stroke-width="1"/>
+    </pattern>
+    <radialGradient id="glowAmber" cx="0.22" cy="0.28" r="0.55">
+      <stop offset="0%" stop-color="#FFB02E" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#0A0A0A" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowBlue" cx="0.82" cy="0.72" r="0.55">
+      <stop offset="0%" stop-color="#60A5FA" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="#0A0A0A" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="titleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#A0A0A0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Canvas -->
+  <rect width="1200" height="630" fill="#0A0A0A"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <rect width="1200" height="630" fill="url(#glowAmber)"/>
+  <rect width="1200" height="630" fill="url(#glowBlue)"/>
+
+  <!-- Outer Editorial Frame -->
+  <rect x="56" y="52" width="1088" height="526" rx="20" fill="#111111" fill-opacity="0.9" stroke="#2A2A2A" stroke-width="1.5"/>
+
+  <!-- Top Terminal Chrome -->
+  <rect x="56" y="52" width="1088" height="52" rx="20" fill="#161616"/>
+  <rect x="56" y="84" width="1088" height="20" fill="#161616"/>
+  <line x1="56" y1="104" x2="1144" y2="104" stroke="#2A2A2A" stroke-width="1.5"/>
+  <circle cx="88" cy="78" r="6.5" fill="#FF5F56"/>
+  <circle cx="110" cy="78" r="6.5" fill="#FFBD2E"/>
+  <circle cx="132" cy="78" r="6.5" fill="#27C93F"/>
+  <text x="600" y="83" text-anchor="middle" fill="#888888" font-family="'IBM Plex Mono', Consolas, monospace" font-size="14" font-weight="500">
+    GET https://api.openweathermap.org/data/2.5/weather · 200 OK
+  </text>
+
+  <!-- Logo Mark + Eyebrow -->
+  <g transform="translate(108, 150)">
+    <rect width="64" height="64" rx="14" fill="#1A1A1A" stroke="#2E2E2E" stroke-width="1.5"/>
+    <g stroke="#FFB02E" stroke-width="2.8" stroke-linecap="round">
+      <line x1="24" y1="10" x2="24" y2="15"/>
+      <line x1="24" y1="39" x2="24" y2="44"/>
+      <line x1="10" y1="27" x2="15" y2="27"/>
+      <line x1="33" y1="27" x2="38" y2="27"/>
+      <line x1="14.1" y1="17.1" x2="17.7" y2="20.7"/>
+      <line x1="30.3" y1="33.3" x2="33.9" y2="36.9"/>
+      <line x1="33.9" y1="17.1" x2="30.3" y2="20.7"/>
+      <line x1="17.7" y1="33.3" x2="14.1" y2="36.9"/>
+    </g>
+    <circle cx="24" cy="27" r="8.5" fill="#FFB02E"/>
+    <path d="M25 49h22.5a7.5 7.5 0 0 0 1.1-14.92A10.5 10.5 0 0 0 28.4 31.2 8.5 8.5 0 0 0 25 49Z" fill="#F4F6F8"/>
+  </g>
+
+  <rect x="192" y="164" width="388" height="36" rx="18" fill="#1A1A1A" stroke="#2A2A2A" stroke-width="1"/>
+  <text x="386" y="187" text-anchor="middle" fill="#A0A0A0" font-family="'IBM Plex Mono', Consolas, monospace" font-size="13" font-weight="600" letter-spacing="1.2">
+    TECHNICAL WRITING PORTFOLIO SAMPLE
+  </text>
+
+  <!-- Main Title -->
+  <text x="108" y="302" fill="url(#titleGrad)" font-family="'Space Grotesk', 'Segoe UI', system-ui, sans-serif" font-size="64" font-weight="700" letter-spacing="-1.5">
+    OpenWeatherMap API Docs
+  </text>
+
+  <!-- Subtitle -->
+  <text x="108" y="358" fill="#A0A0A0" font-family="'Plus Jakarta Sans', 'Segoe UI', system-ui, sans-serif" font-size="26" font-weight="400">
+    Developer-focused REST API documentation by Michel Silveira
+  </text>
+
+  <!-- Divider -->
+  <line x1="108" y1="432" x2="1092" y2="432" stroke="#242424" stroke-width="1"/>
+
+  <!-- Bottom Pills -->
+  <g font-family="'IBM Plex Mono', Consolas, monospace" font-size="15" font-weight="500">
+    <rect x="108" y="468" width="210" height="40" rx="8" fill="#181818" stroke="#2A2A2A"/>
+    <text x="213" y="493" text-anchor="middle" fill="#FAFAFA">Diátaxis framework</text>
+
+    <rect x="334" y="468" width="156" height="40" rx="8" fill="#181818" stroke="#2A2A2A"/>
+    <text x="412" y="493" text-anchor="middle" fill="#FAFAFA">REST + JSON</text>
+
+    <rect x="506" y="468" width="230" height="40" rx="8" fill="#181818" stroke="#2A2A2A"/>
+    <text x="621" y="493" text-anchor="middle" fill="#FAFAFA">Interactive playground</text>
+
+    <text x="1092" y="493" text-anchor="end" fill="#888888">michelgss.github.io/openweather-docs</text>
+  </g>
+</svg>

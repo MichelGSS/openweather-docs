@@ -1,60 +1,63 @@
 ---
 sidebar_position: 1
+title: Authentication
+description: Query-parameter authentication specification, transport security requirements, key activation window, and 401 Unauthorized triggers for the OpenWeatherMap REST API.
 ---
 
 # Authentication
 
-All OpenWeatherMap API requests require an API key passed as a query parameter.
+Every request to OpenWeatherMap Weather API 2.5 and Geocoding API 1.0 authenticates with an API key passed in the `appid` URL query parameter over HTTPS.
 
-## API key
+For account registration, key generation, and environment variable setup, see [Get your API key](../getting-started/get-api-key).
 
-Include your API key in every request using the `appid` query parameter:
+## Authentication specification
 
+| Attribute | Specification |
+| --- | --- |
+| Parameter | `appid` |
+| Location | Query string |
+| Type and format | `string`—32-character lowercase hexadecimal token (such as `a1b2c3d4e5f60718293a4b5c6d7e8f90`) |
+| HTTP header authentication | Unsupported—`Authorization` and `X-API-Key` headers are rejected and trigger CORS preflight failures in browsers |
+| Transport security | HTTPS required to encrypt the query string in transit |
+| Key activation window | 10–15 minutes typical; up to 2 hours maximum |
+| Multiple keys | Supported per account; all keys share the account rate-limit quota |
+
+## Request syntax
+
+Append `appid` as a query parameter on every HTTPS request:
+
+```http
+GET https://api.openweathermap.org/data/2.5/weather?lat=51.5085&lon=-0.1257&appid={API_KEY}
 ```
-GET https://api.openweathermap.org/data/2.5/weather?q=London&appid=YOUR_API_KEY
-```
 
-| Parameter | Type   | Required | Description        |
-|-----------|--------|----------|--------------------|
-| `appid`   | string | Yes      | Your API key       |
+| Parameter | Type | Required | Default | Description |
+| --- | --- | --- | --- | --- |
+| `appid` | `string` | Yes | — | 32-character lowercase hexadecimal API key associated with your OpenWeatherMap account. |
 
-## Free tier limits
-
-Free API keys are subject to request quotas and endpoint restrictions. For the
-full list of limits, available endpoints, and data freshness, see
-[Rate limits](./rate-limits).
+:::warning Credential exposure in client applications
+Because `appid` travels in the URL query string, calling `api.openweathermap.org` directly from browser JavaScript or mobile clients exposes your key in browser developer tools and network logs. Route client requests through a backend proxy as shown in [Set up rate limiting and caching](../how-to/rate-limiting).
+:::
 
 ## Authentication errors
 
-| Status Code | Meaning                            | Solution                          |
-|-------------|------------------------------------|-----------------------------------|
-| `401`       | Invalid API key                    | Check your key is correct         |
-| `401`       | API key not activated              | Wait up to 2 hours after creation |
-| `429`       | Rate limit exceeded                | Reduce request frequency          |
+When authentication fails, the API responds with HTTP `401 Unauthorized` and a JSON payload containing a numeric `cod` field:
 
-## Security best practices
-
-:::warning
-Never hardcode your API key in source code or commit it to Git repositories.
-:::
-
-Store your key as an environment variable:
-
-```bash
-# Linux/macOS
-export OPENWEATHER_API_KEY="your_key_here"
-
-# Windows (PowerShell)
-$env:OPENWEATHER_API_KEY = "your_key_here"
+```json
+{
+  "cod": 401,
+  "message": "Invalid API key. See https://openweathermap.org/faq#error401 for more info."
+}
 ```
 
-Reference it in your code:
+### `401 Unauthorized` triggers
 
-```javascript
-const API_KEY = process.env.OPENWEATHER_API_KEY;
-```
+OpenWeatherMap returns `401 Unauthorized` under four conditions:
 
-```python
-import os
-api_key = os.environ["OPENWEATHER_API_KEY"]
-```
+| Trigger | Condition |
+| --- | --- |
+| Missing `appid` | The request URL omits the `appid` query parameter, passes an empty value (`appid=`), or supplies the key in an HTTP header instead of the query string. |
+| Invalid or revoked key | The `appid` value contains a typo, extra whitespace, or belongs to a key that was deleted or deactivated on the OpenWeatherMap dashboard. |
+| Newly generated key pending activation | The key was created within the past 2 hours and has not finished propagating across OpenWeatherMap edge servers (10–15 minutes typical; up to 2 hours maximum). |
+| Endpoint outside subscription plan | The key is valid and active, but the request targets an endpoint outside your active subscription tier, such as One Call API 3.0 (`/data/3.0/onecall`) or 16-day daily forecast (`/data/2.5/forecast/daily`) without an active plan for that product. |
+
+For additional status codes and error schemas, see [Error codes](./error-codes). For account quota rules across keys, see [Rate limits](./rate-limits).

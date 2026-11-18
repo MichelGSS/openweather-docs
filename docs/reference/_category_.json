@@ -1,4 +1,9 @@
 {
-  "label": "API Reference",
-  "position": 5
+  "label": "API reference",
+  "position": 5,
+  "link": {
+    "type": "generated-index",
+    "title": "API reference",
+    "description": "Complete endpoint specifications, query parameters, response schemas, error codes, and rate limits for OpenWeatherMap Weather API 2.5 and Geocoding API 1.0."
+  }
 }
